@@ -1,0 +1,57 @@
+{
+    "BUTTON": {
+        "LOGIN": "Iniciar sesión",
+        "LOGOUT": "Cerrar sesión",
+        "CHANGE_THEME": "Cambiar tema",
+        "NEW": "Nuevo",
+        "REFRESH": "Refrescar",
+        "DELETE": "Eliminar",
+        "EDIT": "Editar",
+        "SAVE": "Guardar",
+        "CANCEL": "Cancelar",
+        "CLOSE": "Cerrar",
+        "BACK": "Volver",
+        "NEXT": "Siguiente",
+        "PREVIOUS": "Anterior"
+    },
+    "DATATABLE": {
+        "LOADING": "Cargando...",
+        "NO_DATA": "No hay datos"
+    },
+    "GENERAL": {
+        "WELCOME_TEXT": "Bienvenido",
+        "WELCOME": "Bienvenido {name}"
+    },
+    "LABEL": {
+        "NO_FORM": "No hay formulario",
+        "NO_FORM_TEXT": "No tienes configurado ningún formulario, por favor contacta con el administrador"
+    },
+    "LOGIN": {
+        "TITLE_LOGIN": "Iniciar sesión",
+        "LABEL_USER": "Correo electrónico",
+        "PLACEHOLDER_USER": "Escribe tu correo electronico",
+        "REQUIRED_USER": "El usuario es obligatorio",
+        "INVALID_USER": "El correo electrónico debe ser válido",
+        "LABEL_PASS": "Contraseña",
+        "PLACEHOLDER_PASS": "Ingresa tu contraseña",
+        "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+        "REQUIRED_PASS": "La contraseña es obligatoria",
+        "INVALID_PASS": "La contraseña debe tener al menos 6 caracteres",
+        "CREATE_ACCOUNT": "¿No tienes una cuenta?",
+        "CREATE_ACCOUNT_LINK": "Crear una cuenta"
+    },
+    "MESSAGES": {
+        "NOT_PERMISSION": "No tienes permisos para acceder a esta página"
+    },
+    "STATUS": {
+        "ACTIVE": "Activo",
+        "INACTIVE": "Inactivo"
+    },
+    "MENU": {
+        "HOME": "Inicio"
+    },
+    "YES_NO": {
+        "YES": "Sí",
+        "NO": "No"
+    }
+}

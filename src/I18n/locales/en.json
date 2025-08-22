@@ -1,0 +1,57 @@
+{
+    "BUTTON": {
+        "LOGIN": "Login",
+        "LOGOUT": "Logout",
+        "CHANGE_THEME": "Change theme",
+        "NEW": "New",
+        "REFRESH": "Refresh",
+        "DELETE": "Delete",
+        "EDIT": "Edit",
+        "SAVE": "Save",
+        "CANCEL": "Cancel",
+        "CLOSE": "Close",
+        "BACK": "Back",
+        "NEXT": "Next",
+        "PREVIOUS": "Previous"
+    },
+    "DATATABLE": {
+        "LOADING": "Loading...",
+        "NO_DATA": "No data"
+    },
+    "GENERAL": {
+        "WELCOME_TEXT": "Welcome",
+        "WELCOME": "Welcome {name}"
+    },
+    "LABEL": {
+        "NO_FORM": "No form",
+        "NO_FORM_TEXT": "You do not have any form configured, please contact the administrator"
+    },
+    "LOGIN": {
+        "TITLE_LOGIN": "Login",
+        "LABEL_USER": "Email",
+        "PLACEHOLDER_USER": "Enter your email",
+        "REQUIRED_USER": "Email is required",
+        "INVALID_USER": "Email must be valid",
+        "LABEL_PASS": "Password",
+        "PLACEHOLDER_PASS": "Enter your password",
+        "FORGOT_PASSWORD": "Forgot your password?",
+        "REQUIRED_PASS": "Password is required",
+        "INVALID_PASS": "Password must be at least 6 characters",
+        "CREATE_ACCOUNT": "Don't have an account?",
+        "CREATE_ACCOUNT_LINK": "Create an account"
+    },
+    "MESSAGES": {
+        "NOT_PERMISSION": "You do not have permission to access this page"
+    },
+    "MENU": {
+        "HOME": "Home"
+    },
+    "STATUS": {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+    },
+    "YES_NO": {
+        "YES": "Yes",
+        "NO": "No"
+    }
+}
