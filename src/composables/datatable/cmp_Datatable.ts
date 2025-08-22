@@ -39,6 +39,7 @@ export function cmpDatatable(props: IPropsDatatable) {
         'FIELD_COLOR'  : defineAsyncComponent(() => import('@/components/datatable/components/CellColor.vue')),
         'FIELD_HTML'   : defineAsyncComponent(() => import('@/components/datatable/components/CellHtml.vue')),
         'FIELD_FILE'   : defineAsyncComponent(() => import('@/components/datatable/components/CellFile.vue')),
+        'FIELD_LINK'   : defineAsyncComponent(() => import('@/components/datatable/components/CellLink.vue')),
     }
 
     // vue native methods

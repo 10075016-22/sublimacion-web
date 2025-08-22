@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer color="backgroundPrimary">
+  <v-navigation-drawer color="#1F2A3C">
     <v-list>
       <v-list-item :subtitle="oUser?.email" :title="oUser?.name" >
         <template v-slot:prepend>
