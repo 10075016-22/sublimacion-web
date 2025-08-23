@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="[!authenticated ? 'bg-login' : '']">
     <UIMenu v-if="authenticated" />
     <v-main>
       <UIHeader v-if="authenticated" />
@@ -31,7 +31,7 @@ const { ip, authenticated } = storeToRefs(userStore())
 const { bDark } = storeToRefs(navigationStore())
 
 onMounted(() => {
-  theme.global.name.value = bDark.value ? 'dark' : 'light'
+  theme.change(bDark.value ? 'dark' : 'light')
 
   window.RTCPeerConnection = window.RTCPeerConnection || false
   if (window.RTCPeerConnection) {
@@ -47,3 +47,15 @@ onMounted(() => {
   }
 })
 </script>
+<style>
+.v-card {
+  border-radius: 0 !important;
+  border-color: #E0E0E0 !important;
+}
+.bg-login {
+  background-image: url('@/assets/images/background.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+</style>

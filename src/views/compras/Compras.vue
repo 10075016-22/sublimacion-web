@@ -1,13 +1,18 @@
 <template>
-    <div>
-        <h1>Compras</h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-    </div>
+  <v-row>
+    <v-col cols="12" v-if="viewPermission">
+      <Datatable :idTable="7" :nuevo="newPermission" />
+    </v-col>
+    <v-col cols="12" v-else>
+      <WithOutPermission />
+    </v-col>
+  </v-row>
 </template>
-
 <script lang="ts" setup>
+import { PermissionUtil } from '@/utils/PermissionUtil'
 
+const { hasPermission } = PermissionUtil()
+
+const newPermission = hasPermission('compras-datatable-nuevo')
+const viewPermission = hasPermission('compras-datatable')
 </script>
-
-<style scoped>
-</style>

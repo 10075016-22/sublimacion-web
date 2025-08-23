@@ -1,8 +1,11 @@
 <template>
   <v-container class="fill-height">
-    <v-row justify="center" align="center" style="height: 68vh;">
+    <v-row justify="center" align="center" style="height: 80vh;" class="mt-10">
       <v-col cols="12" sm="8" md="5" lg="4" xl="3">
         <v-card class="pa-5" elevation="2">
+          <div class="text-center">
+            <img src="/logo.png" alt="logo" class="mb-5" style="width: 100px; height: 100px;">
+          </div>
           <v-card-title>{{ $t('LOGIN.TITLE_LOGIN') }}</v-card-title>
           <v-card-text>
             <v-form ref="formRef" v-model="isValid">

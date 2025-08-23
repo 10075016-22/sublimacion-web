@@ -38,7 +38,7 @@
 
     <v-row>
       <v-col>
-        <v-card>
+        <v-card variant="outlined">
           <v-toolbar color="transparent">
             <v-spacer />
             <v-btn icon color="primary" @click="onRefresh">
@@ -49,7 +49,7 @@
             <v-row v-if="!isLoadingChart">
               <template v-for="(chart, index) in aChart" :key="index">
                 <v-col v-if="hasPermission(chart.permission)" :cols="chart.cols">
-                  <v-card>
+                  <v-card elevation="0" variant="outlined">
                     <v-card-text>
                       <BaseChart :chart="chart" />
                     </v-card-text>
