@@ -30,16 +30,17 @@ export function cmpDatatable(props: IPropsDatatable) {
 
     // manejo de componentes asyncronos
     const componentsMap = {
-        'FIELD_TEXT'   : defineAsyncComponent(() => import('@/components/datatable/components/CellText.vue')),
-        'FIELD_ACTION' : defineAsyncComponent(() => import('@/components/datatable/components/CellAction.vue')),
-        'FIELD_STATUS' : defineAsyncComponent(() => import('@/components/datatable/components/CellStatus.vue')),
-        'FIELD_LOGO'   : defineAsyncComponent(() => import('@/components/datatable/components/CellLogo.vue')),
-        'FIELD_YES_NO' : defineAsyncComponent(() => import('@/components/datatable/components/CellYesNo.vue')),
-        'FIELD_CHIP'   : defineAsyncComponent(() => import('@/components/datatable/components/CellChip.vue')),
-        'FIELD_COLOR'  : defineAsyncComponent(() => import('@/components/datatable/components/CellColor.vue')),
-        'FIELD_HTML'   : defineAsyncComponent(() => import('@/components/datatable/components/CellHtml.vue')),
-        'FIELD_FILE'   : defineAsyncComponent(() => import('@/components/datatable/components/CellFile.vue')),
-        'FIELD_LINK'   : defineAsyncComponent(() => import('@/components/datatable/components/CellLink.vue')),
+        'FIELD_TEXT'     : defineAsyncComponent(() => import('@/components/datatable/components/CellText.vue')),
+        'FIELD_ACTION'   : defineAsyncComponent(() => import('@/components/datatable/components/CellAction.vue')),
+        'FIELD_STATUS'   : defineAsyncComponent(() => import('@/components/datatable/components/CellStatus.vue')),
+        'FIELD_LOGO'     : defineAsyncComponent(() => import('@/components/datatable/components/CellLogo.vue')),
+        'FIELD_YES_NO'   : defineAsyncComponent(() => import('@/components/datatable/components/CellYesNo.vue')),
+        'FIELD_CHIP'     : defineAsyncComponent(() => import('@/components/datatable/components/CellChip.vue')),
+        'FIELD_COLOR'    : defineAsyncComponent(() => import('@/components/datatable/components/CellColor.vue')),
+        'FIELD_HTML'     : defineAsyncComponent(() => import('@/components/datatable/components/CellHtml.vue')),
+        'FIELD_FILE'     : defineAsyncComponent(() => import('@/components/datatable/components/CellFile.vue')),
+        'FIELD_LINK'     : defineAsyncComponent(() => import('@/components/datatable/components/CellLink.vue')),
+        'FIELD_CURRENCY' : defineAsyncComponent(() => import('@/components/datatable/components/CellCurrency.vue')),
     }
 
     // vue native methods

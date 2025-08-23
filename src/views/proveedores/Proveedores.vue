@@ -13,6 +13,6 @@ import { PermissionUtil } from '@/utils/PermissionUtil'
 
 const { hasPermission } = PermissionUtil()
 
-const newPermission = hasPermission('clientes-datatable-nuevo')
-const viewPermission = hasPermission('clientes-datatable')
+const newPermission = hasPermission('proveedores-datatable-nuevo')
+const viewPermission = hasPermission('proveedores-datatable')
 </script>
