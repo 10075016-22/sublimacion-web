@@ -20,7 +20,7 @@ export function cmpUIMenu() {
             const response = await apiClient.get('/v1/modules', '', true)
             items.value = response.data.map((item: IModelModuleResponse) => MenuAdapter.toModel(item))
         } catch (error) {
-            console.log(error);
+            console.log({error});
         } finally {
             isLoading.value = false
         }

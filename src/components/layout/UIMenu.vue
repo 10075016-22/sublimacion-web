@@ -19,7 +19,11 @@
           :to="{name: item.path}" 
           :prepend-icon="item.icon" 
           :title="item.name" 
-          :value="item.value" 
+          :value="item.value"
+          :disabled="item.disabled"
+          :density="!item.disabled ? 'compact' : 'comfortable'"
+          :min-height="!item.disabled ? '' : '20'"
+          slim
         />
       </template>
     </v-list>

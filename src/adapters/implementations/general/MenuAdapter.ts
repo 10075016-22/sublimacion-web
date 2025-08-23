@@ -12,7 +12,8 @@ export class MenuAdapter {
       path: data.name,
       order: data.order,
       status: data.status === 1,
-      divider: data.divider === 1
+      divider: data.divider === 1,
+      disabled: data.disabled === 1
     };
   }
 }

@@ -59,6 +59,21 @@ const routes: RouteRecordRaw[] = [
     name: 'configuracion',
     component: () => import('@/views/configuracion/Configuracion.vue')
   },
+  {
+    path: '/dashboard/tiposcliente',
+    name: 'tiposcliente',
+    component: () => import('@/views/tipos-cliente/TiposCliente.vue')
+  },
+  {
+    path: '/dashboard/categoriasproducto',
+    name: 'categoriasproducto',
+    component: () => import('@/views/categorias-producto/CategoriasProducto.vue')
+  },
+  {
+    path: '/dashboard/categoriasproveedor',
+    name: 'categoriasproveedor',
+    component: () => import('@/views/categorias-proveedor/CategoriasProveedor.vue')
+  }
 ]
 
 const router = createRouter({

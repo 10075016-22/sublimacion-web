@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="backgroundPrimary" elevation="1">
+  <v-app-bar color="backgroundPrimary" elevation="1" density="compact">
     <template #append>
       <UIProfile class="mr-2"/>
       <UIThemeButton class="mr-2"/>

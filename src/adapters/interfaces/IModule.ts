@@ -7,6 +7,7 @@ export interface IModelModuleResponse {
     order: number;
     status: number;
     divider: number;
+    disabled: number;
 }
 
 export interface IModelModule {
@@ -18,4 +19,5 @@ export interface IModelModule {
     order: number;
     status: boolean;
     divider: boolean;
+    disabled: boolean;
 }
