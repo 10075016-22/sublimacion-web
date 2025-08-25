@@ -6,7 +6,7 @@
           <div class="text-center">
             <img src="/logo.png" alt="logo" class="mb-5" style="width: 100px; height: 100px;">
           </div>
-          <v-card-title>{{ $t('LOGIN.TITLE_LOGIN') }}</v-card-title>
+          <v-card-subtitle class="text-center">{{ $t('LOGIN.TITLE_LOGIN') }}</v-card-subtitle>
           <v-card-text>
             <v-form ref="formRef" v-model="isValid">
               <v-text-field
@@ -24,7 +24,6 @@
               <v-text-field
                 :label="$t('LOGIN.LABEL_PASS')"
                 :placeholder="$t('LOGIN.PLACEHOLDER_PASS')"
-                :append-inner-icon="'mdi-eye-off'"
                 :rules="rulePassword"
                 type="password"
                 required
@@ -40,10 +39,6 @@
                 {{ $t('BUTTON.LOGIN') }}
               </v-btn>
             </v-form>
-            <div class="text-center mt-8">
-              <span class="mr-1">{{ $t('LOGIN.CREATE_ACCOUNT') }}</span>
-              <a href="#" class="text-primary text-decoration-underline">{{ $t('LOGIN.CREATE_ACCOUNT_LINK') }}</a>
-            </div>
           </v-card-text>
         </v-card>
       </v-col>

@@ -3,6 +3,8 @@ export interface IFormProps {
     title: string; // Titulo del formulario
     idTable: number; // ID de la tabla asociada al formulario
     endpoint: string; // endpoint de la datatable (usaremos el metodo post o put dependiendo el caso)
+    edition?: boolean; // Indica si el formulario es de edicion o creacion (opcional)
+    item?: any; // item para edicion
 }
 
 export interface ITypeField {
@@ -42,12 +44,23 @@ export interface IModelForm {
     maxlength: number | null;
 }
 
+// fields models form
 export interface IModelField {
+    id: number;
     editable: boolean;
     required: boolean;
     label: string;
     name: string;
-    filterField: string;
     info: string;
+    component: string;
+    filterField: string;
     modifyTo?: string | null;
+    modelValue?: any;
+    edition?: boolean;
+    item?: any;
+}
+
+export interface IModelSelectField {
+    id: number;
+    text: string;
 }

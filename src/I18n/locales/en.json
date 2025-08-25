@@ -18,6 +18,9 @@
         "LOADING": "Loading...",
         "NO_DATA": "No data"
     },
+    "FORM": {
+        "REQUIRED": "This field is required"
+    },
     "GENERAL": {
         "WELCOME_TEXT": "Welcome",
         "WELCOME": "Welcome {name}"
@@ -27,7 +30,7 @@
         "NO_FORM_TEXT": "You do not have any form configured, please contact the administrator"
     },
     "LOGIN": {
-        "TITLE_LOGIN": "Login",
+        "TITLE_LOGIN": "Login to your account",
         "LABEL_USER": "Email",
         "PLACEHOLDER_USER": "Enter your email",
         "REQUIRED_USER": "Email is required",

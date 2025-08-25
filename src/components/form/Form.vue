@@ -1,25 +1,35 @@
 <template>
   <v-dialog v-model="form" scrollable max-width="700" persistent>
     <v-card :loading="isLoading">
-      <v-toolbar height="45">
+      <v-toolbar height="45" color="primary">
         <v-toolbar-title class="font-weight-medium">{{ title }} </v-toolbar-title>
+        <v-spacer />
+        <v-btn icon @click="onCancel" size="small">
+          <v-icon>mdi-close-circle-outline</v-icon>
+        </v-btn>
       </v-toolbar>
       <v-card-text>
-        <v-form ref="formRef" v-if="!isLoading">
+        <v-form ref="formRef" v-if="!isLoading" :key="nKeyForm">
           <v-row class="mt-2" v-if="aForm.length > 0">
-            <v-col v-for="(item, index) in aForm" :key="index" :cols="item.size">
-              <component 
-                :is="hasComponent(item.component)" 
-                :label="item.label"
-                :name="item.fieldname"
-                :required="item.required"
-                :editable="item.editable"
-                :filterField="item.filterField"
-                :info="item.info || '' "
-                :modifyTo="item.modifyTo"
-                v-model="oForm[item.fieldname]"
-              />
-            </v-col>
+            <template v-for="(item, index) in aForm" :key="index">
+              <v-col v-if="(props?.edition || false) || item.editable" :cols="item.size">
+                <component 
+                  :is="hasComponent(item.component)" 
+                  :id="item.id"
+                  :label="item.label"
+                  :name="item.fieldname"
+                  :required="item.required"
+                  :editable="item.editable"
+                  :filterField="item.filterField"
+                  :info="item.info || '' "
+                  :modifyTo="item.modifyTo"
+                  :component="item.component"
+                  v-model="oForm[item?.fieldname]"
+                  :edition="props.edition"
+                  :item="props.item"
+                />
+              </v-col>
+            </template>
           </v-row>
           <v-row v-else>
             <v-col>
@@ -41,7 +51,7 @@
           {{ $t('BUTTON.CANCEL') }}
         </v-btn>
         <v-btn color="primary" size="small" v-if="aForm.length > 0" :loading="loading" @click="onSubmit">
-          {{ $t('BUTTON.SAVE') }}
+          {{ props?.edition ? $t('BUTTON.UPDATE') : $t('BUTTON.SAVE') }}
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -56,7 +66,6 @@
 
 import type { IFormProps } from '@/adapters/interfaces/form/IModelForm'
 import { cmpForm } from '@/composables/form/cmp_Form'
-import Notification from '@/components/common/Notification.vue'
 
 const props = defineProps<IFormProps>()
 
@@ -72,6 +81,7 @@ const {
   formRef,
   oForm,
   loading,
+  nKeyForm,
 
   isLoading,
   

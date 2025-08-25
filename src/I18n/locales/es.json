@@ -18,6 +18,9 @@
         "LOADING": "Cargando...",
         "NO_DATA": "No hay datos"
     },
+    "FORM": {
+        "REQUIRED": "Este campo es obligatorio"
+    },
     "GENERAL": {
         "WELCOME_TEXT": "Bienvenido",
         "WELCOME": "Bienvenido {name}"
@@ -27,7 +30,7 @@
         "NO_FORM_TEXT": "No tienes configurado ningún formulario, por favor contacta con el administrador"
     },
     "LOGIN": {
-        "TITLE_LOGIN": "Iniciar sesión",
+        "TITLE_LOGIN": "Inicia sesión en tu cuenta",
         "LABEL_USER": "Correo electrónico",
         "PLACEHOLDER_USER": "Escribe tu correo electronico",
         "REQUIRED_USER": "El usuario es obligatorio",

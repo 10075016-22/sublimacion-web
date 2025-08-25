@@ -1,9 +1,17 @@
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import type { IModelField } from '@/adapters/interfaces/form/IModelForm'
+
+import apiClient from '@/services/api'
+
+import type { IModelField, IModelSelectField } from '@/adapters/interfaces/form/IModelForm'
+import type { ApiResponse } from '@/types/services/api'
 
 export function cmpField(props: IModelField) {
     const { t } = useI18n()
+
+    const items = ref<IModelSelectField[]>([])
+    const loading = ref<boolean>(false)
+
     const rules = computed(() => {
         if (props.required) {
             return [ 
@@ -33,8 +41,29 @@ export function cmpField(props: IModelField) {
     const cmplabel = computed(() => {
         return props.required ? `${props.label} *` : props.label
     })
+
+    const getItemsSelect = async () => {
+        try {
+            loading.value = true
+            const URL = `/form/select/${props.id}` 
+            const response: ApiResponse = await apiClient.get(URL)
+            items.value = response.data
+        } catch (error) {
+            console.log({ error });            
+        } finally {
+            loading.value = false
+        }
+    }
+
+    onMounted(async () => {
+        if(props.component === "FORM_SELECT") { // solamente si es un select
+            await getItemsSelect()
+        }
+    })
     
     return {
+        items,
+        loading,
         rules,
         ruleEmail,
         cmplabel

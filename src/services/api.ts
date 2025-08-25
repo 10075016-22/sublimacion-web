@@ -44,7 +44,7 @@ apiClient.interceptors.response.use((response: AxiosResponse<ApiResponse>) => {
     console.log("Error 401");
     
     resetUser()
-    // Se limpia el localStorage
+    // Se limpia el localStorage excepto el tema
     localStorage.clear()
 
     let { location } = window

@@ -16,6 +16,8 @@ export function cmpForm(props: IFormProps, emit: any) {
         'FORM_SELECT'   : defineAsyncComponent(() => import('@/components/form/components/FormSelect.vue')),
         'FORM_TEXTAREA' : defineAsyncComponent(() => import('@/components/form/components/FormTextArea.vue')),
         'FORM_SWITCH'   : defineAsyncComponent(() => import('@/components/form/components/FormSwitch.vue')),
+        'FORM_PASSWORD' : defineAsyncComponent(() => import('@/components/form/components/FormPassword.vue')),
+        'FORM_DATE'     : defineAsyncComponent(() => import('@/components/form/components/FormDate.vue')),
     }
 
     const { t } = useI18n()
@@ -30,6 +32,8 @@ export function cmpForm(props: IFormProps, emit: any) {
     const isNotification    = ref<boolean>(false)
     const textNotification  = ref<string>('')
     const colorNotification = ref<string>('')
+
+    const nKeyForm = ref<number>(0)
     
     const onCancel = () => {
         form.value = false
@@ -43,7 +47,7 @@ export function cmpForm(props: IFormProps, emit: any) {
             if(valid) {
                 const hasFile = Object.values(oForm.value).some(value => value instanceof File)
                 const URL = `/v1/${props.endpoint}`
-                if (hasFile) {                    
+                if (hasFile) {      
                     // enviamos la data con un post normal usando multipart/form-data
                     const formData = new FormData();
                     Object.entries(oForm.value).forEach(([key, value]) => {
@@ -52,16 +56,21 @@ export function cmpForm(props: IFormProps, emit: any) {
                         } else {
                             formData.append(key, String(value));
                         }
-                    });
-                    const response : ApiResponse = await apiClient.postFile(URL, formData, true)
+                    });      
+
+                    let response : ApiResponse
+                    if(props?.edition) {
+                        response = await apiClient.postFile(`${URL}/${props.item.id}`, formData, true)
+                    } else {
+                        response = await apiClient.postFile(URL, formData, true)
+                    }
                     if(response.message === 'OK') {
                         textNotification.value = t('FORM.FORM_SUCCESS')
                         colorNotification.value = 'success'
                         
                         emit('onCancel', true);
-                        emit('onRefresh', true);
-                        emit('update:modelValue', false)
-
+                        emit('onRefresh', true)
+                        emit('update:show', false)    
                         form.value = false
                     } else {
                         textNotification.value = t('FORM.FORM_ERROR')
@@ -69,12 +78,46 @@ export function cmpForm(props: IFormProps, emit: any) {
                     }
                     isNotification.value = true;
                 } else {
-                    // enviamos la data con un post normal usando application/json
+                    // validamos si es o no edición
+                    if(props?.edition) {
+                        // enviamos la data con un put normal
+                        const response : ApiResponse = await apiClient.put(`${URL}/${props.item.id}`, oForm.value, '', true)
+                        if(response.message === 'OK') {
+                            textNotification.value = t('FORM.FORM_SUCCESS')
+                            colorNotification.value = 'success'
+                            
+                            emit('onCancel', true);
+                            emit('onRefresh', true);
+                            emit('update:show', false)
+                            form.value = false
+                        } else {
+                            textNotification.value = t('FORM.FORM_ERROR')
+                            colorNotification.value = 'error'
+                        }
+                    } else {
+                        const response : ApiResponse = await apiClient.post(URL, oForm.value, '', true)
+                        if(response.message === 'OK') {
+                            textNotification.value = t('FORM.FORM_SUCCESS')
+                            colorNotification.value = 'success'
+                            
+                            emit('onCancel', true);
+                            emit('onRefresh', true);
+                            emit('update:show', false)
+                            form.value = false
+                        } else {
+                            textNotification.value = t('FORM.FORM_ERROR')
+                            colorNotification.value = 'error'
+                        }
+                    }
+                    isNotification.value = true;
                 }
-                // postFile
             }
         } catch (error) {
-            console.log({ error });
+            const { response } = error as any
+            textNotification.value = response?.data?.message || t('FORM.FORM_ERROR')
+            colorNotification.value = 'error'
+            isNotification.value = true;
+            
         } finally {
             loading.value = false
         }
@@ -86,7 +129,22 @@ export function cmpForm(props: IFormProps, emit: any) {
             const URL = `/grid/configuracion/form/${props.idTable}` 
             const response: ApiResponse = await apiClient.get(URL)
 
-            aForm.value = FormAdapter.toModelHeaders(response.data)                   
+            aForm.value = FormAdapter.toModelHeaders(response.data)
+        } catch (error) {
+            console.log({ error });            
+        } finally {
+            isLoading.value = false
+        }
+    }
+
+    const onGetItemFormEdition = async () => {
+        try {
+            isLoading.value = true
+            if(typeof props.item === 'undefined') return;
+            const URL = `/v1/${props.endpoint}/${props.item.id}` 
+            const response: ApiResponse = await apiClient.get(URL)
+            oForm.value = response.data
+            nKeyForm.value++      
         } catch (error) {
             console.log({ error });            
         } finally {
@@ -98,9 +156,15 @@ export function cmpForm(props: IFormProps, emit: any) {
         return componentsMap[sComponent as keyof typeof componentsMap] || null
     }
 
-    watch(() => props.show, (newValue) => {
+    watch(() => props.show, async (newValue) => {
         form.value = newValue
-        if(form.value) onGetForm()
+        if(form.value) {
+            await onGetForm()
+            if(props?.edition) {
+                console.log("----------- edition mood ok ---------------------");
+                await onGetItemFormEdition()
+            }
+        }
     }, { immediate: true })
 
 
@@ -111,6 +175,7 @@ export function cmpForm(props: IFormProps, emit: any) {
         formRef,
         oForm,
         loading,
+        nKeyForm,
 
         isNotification,
         textNotification,

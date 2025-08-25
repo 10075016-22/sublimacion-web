@@ -73,6 +73,16 @@ const routes: RouteRecordRaw[] = [
     path: '/dashboard/categoriasproveedor',
     name: 'categoriasproveedor',
     component: () => import('@/views/categorias-proveedor/CategoriasProveedor.vue')
+  },
+  {
+    path: '/dashboard/tipostransaccion',
+    name: 'tipostransaccion',
+    component: () => import('@/views/tipos-transaccion/TiposTransaccion.vue')
+  },
+  {
+    path: '/dashboard/perfiles',
+    name: 'perfiles',
+    component: () => import('@/views/perfiles/Perfiles.vue')
   }
 ]
 

@@ -5,6 +5,8 @@ import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
+import { es } from 'vuetify/locale'
+
 export const vuetify = createVuetify({
   components,
   directives,
@@ -42,6 +44,12 @@ export const vuetify = createVuetify({
           backgroundPrimary: '#121212'
         },
       },
+    },
+  },
+  locale: {
+    locale: 'es',
+    messages: {
+      es,
     },
   },
 }) 
