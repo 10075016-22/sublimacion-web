@@ -18,6 +18,9 @@ export function cmpForm(props: IFormProps, emit: any) {
         'FORM_SWITCH'   : defineAsyncComponent(() => import('@/components/form/components/FormSwitch.vue')),
         'FORM_PASSWORD' : defineAsyncComponent(() => import('@/components/form/components/FormPassword.vue')),
         'FORM_DATE'     : defineAsyncComponent(() => import('@/components/form/components/FormDate.vue')),
+        'FORM_URL'      : defineAsyncComponent(() => import('@/components/form/components/FormUrl.vue')),
+        'FORM_NUMBER'   : defineAsyncComponent(() => import('@/components/form/components/FormNumber.vue')),
+        'FORM_CURRENCY' : defineAsyncComponent(() => import('@/components/form/components/FormCurrency.vue')),
     }
 
     const { t } = useI18n()

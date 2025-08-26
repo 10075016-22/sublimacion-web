@@ -19,7 +19,13 @@
         "NO_DATA": "No hay datos"
     },
     "FORM": {
-        "REQUIRED": "Este campo es obligatorio"
+        "REQUIRED": "Este campo es obligatorio",
+        "INVALID_EMAIL": "El correo electrónico no es válido",
+        "INVALID_URL": "La URL no es válida",
+        "FORM_SUCCESS": "Registro creado correctamente.",
+        "FORM_ERROR": "Se ha producido un error al crear el registro.",
+        "UPDATE_SUCCESS": "Registro actualizado correctamente.",
+        "UPDATE_ERROR": "Se ha producido un error al actualizar el registro."
     },
     "GENERAL": {
         "WELCOME_TEXT": "Bienvenido",

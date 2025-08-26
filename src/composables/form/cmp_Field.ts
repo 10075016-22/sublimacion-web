@@ -37,6 +37,20 @@ export function cmpField(props: IModelField) {
         return emailRules
     })
 
+    const rulesUrl = computed(() => {
+        const urlRules = []
+        if (props.required) {
+            urlRules.push((v: string) => !!v || t('FORM.REQUIRED'))
+        }
+
+        urlRules.push((v: string) => {
+            if (!v) return true
+            const urlRegex = /^(https?:\/\/)([\w.-]+)(:[0-9]+)?(\/.*)?$/i
+            return urlRegex.test(v) || t('FORM.INVALID_URL')
+        })
+
+        return urlRules
+    })
 
     const cmplabel = computed(() => {
         return props.required ? `${props.label} *` : props.label
@@ -66,6 +80,7 @@ export function cmpField(props: IModelField) {
         loading,
         rules,
         ruleEmail,
+        rulesUrl,
         cmplabel
     }
 }

@@ -19,7 +19,13 @@
         "NO_DATA": "No data"
     },
     "FORM": {
-        "REQUIRED": "This field is required"
+        "REQUIRED": "This field is required",
+        "INVALID_EMAIL": "The email is not valid",
+        "INVALID_URL": "The URL is not valid",
+        "FORM_SUCCESS": "Record created successfully.",
+        "FORM_ERROR": "An error occurred while creating the record.",
+        "UPDATE_SUCCESS": "Record updated successfully.",
+        "UPDATE_ERROR": "An error occurred while updating the record."
     },
     "GENERAL": {
         "WELCOME_TEXT": "Welcome",
