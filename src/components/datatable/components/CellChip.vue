@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-chip size="small" label>
+    <v-chip size="small" :color="props.color" label>
       {{ props.item[props.field] }}
     </v-chip>
   </div>

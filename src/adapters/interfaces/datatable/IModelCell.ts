@@ -1,4 +1,5 @@
 export interface IModelCell {
-    item: any
-    field: string
+    item: any;
+    field: string;
+    color: string;
 }

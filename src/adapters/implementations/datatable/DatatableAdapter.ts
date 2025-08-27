@@ -19,7 +19,8 @@ export class DatatableAdapter {
         fixed: item.fixed === 1,
         align: item.alignment || 'start',
         order: item.order,
-        component: item.type_field.name
+        component: item.type_field.name,
+        color: item.color || 'default'
       }
     })
   }

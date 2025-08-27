@@ -19,6 +19,7 @@ export interface IModelHeadersResponse {
     alignment: string | null;
     order: number;
     type_field: IModelTypeField;
+    color: string;
 }
 
 export interface IModelDatatableResponse {
@@ -50,6 +51,7 @@ export interface IModelHeaders {
     order: number;
     component: string;
     children?: IModelHeaders[];
+    color: string | null;
 }
 
 export interface IModelTable {

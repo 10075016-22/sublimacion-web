@@ -60,6 +60,7 @@
           :is="hasComponent(field.component)"
           :item="item" 
           :field="field.key"
+          :color="field.color || 'default'"
           :actions="actions"
           :table="table"
           @onRefresh="onRefresh"
