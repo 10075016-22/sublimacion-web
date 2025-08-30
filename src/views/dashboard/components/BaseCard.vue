@@ -10,9 +10,8 @@
         <span class="text-h5 font-weight-bold">{{ value }}</span>
         <div>
         <v-icon v-if="percentage == 0" class="ms-2 me-1 text-success">mdi-trending-neutral</v-icon>
-          <v-icon v-else-if="percentage > 0" class="ms-2 me-1 text-success">
-            mdi-trending-up
-          </v-icon>
+        <v-icon v-else-if="percentage > 0" class="ms-2 me-1 text-success">mdi-trending-up</v-icon>
+        <v-icon v-else class="ms-2 me-1 text-error">mdi-trending-down</v-icon>
           <span class="text-subtitle-2 text-success">{{ percentage }}</span>
         </div>
       </div>

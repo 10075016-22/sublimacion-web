@@ -4,7 +4,7 @@
       <v-col cols="12" sm="8" md="5" lg="4" xl="3">
         <v-card class="pa-5" elevation="2">
           <div class="text-center">
-            <img src="/logo.png" alt="logo" class="mb-5" style="width: 100px; height: 100px;">
+            <img src="/Isotipo.svg" alt="logo" class="mb-5" style="width: 100px; height: 100px;">
           </div>
           <v-card-subtitle class="text-center">{{ $t('LOGIN.TITLE_LOGIN') }}</v-card-subtitle>
           <v-card-text>

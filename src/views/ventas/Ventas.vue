@@ -1,7 +1,20 @@
 <template>
   <v-row>
     <v-col cols="12" v-if="viewPermission">
-      <Datatable :idTable="8" :nuevo="newPermission" />
+      <Datatable :idTable="8">
+        <template #custom-button>
+          <v-btn 
+            color="primary" 
+            variant="outlined" 
+            size="small" 
+            rounded="md" 
+            v-if="newPermission"
+          >
+            <v-icon>mdi-plus</v-icon>
+            <span>{{ $t('BUTTON.NEW') }}</span>
+          </v-btn>
+        </template>
+      </Datatable>
     </v-col>
     <v-col cols="12" v-else>
       <WithOutPermission />
